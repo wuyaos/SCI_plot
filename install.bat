@@ -33,7 +33,4 @@ echo A^|copy "%~dp0sci_plot\fonts\TimesSong.ttf" "%windir%\Fonts\TimesSong.ttf"
 echo ****安装sci_plot包****
 pip install .
 
-@REM @REM 复制文件到用户文件夹
-@REM copy "C:\virtualenv\xxx\Lib\site-packages\pymysql\cursors.py" "%user_profile%\.pymysql\cursors.py"
-
 pause
