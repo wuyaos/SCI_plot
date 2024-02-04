@@ -1,33 +1,15 @@
-from matplotlib import font_manager, rcParams
-
 import subprocess
-
 from pathlib import Path
-
+from matplotlib import font_manager, rcParams
 import matplotlib.ticker as mtick
-
 from matplotlib.ticker import MultipleLocator
 
 
 # 定义一个函数,用于设置字体
-def get_color(color_str):
-    # "3_rbh"
-    color_list = [
-        "#0101FE",
-        "#FA0402",
-        "#000000"
-    ]
-    
-    # "2_br"
-    color_list = [
-        "#7B7CBC",
-        "#F77A7E"
-    ]
-
-
 def set_font(
     font_size=10,
-    font_path=r"D:\data\project\coding_learning\SCI_plot\sci_plot\TimesSong.ttf",
+    # 获取系统字体路径
+    font_path=r"C:\Windows\Fonts\TimesSong.ttf"
 ):
     # 字体加载
     font_manager.fontManager.addfont(font_path)
@@ -88,7 +70,6 @@ def set_style(
 ):
 
     '''设置图表的样式
-    
     参数:
     ax:plt.axes对象,用于设置样式
     minorticks:bool,表示是否显示副刻度线
