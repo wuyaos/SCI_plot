@@ -4,17 +4,47 @@ from matplotlib import font_manager, rcParams
 import matplotlib.ticker as mtick
 from matplotlib.ticker import MultipleLocator
 
+import os
+from os.path import join
+import platform
+import sci_plot
+
+sci_plot_path = sci_plot.__path__[0]
+pfont_path = join(sci_plot_path, 'styles', 'fonts')
+
+def get_font_path(font_name):
+    system = platform.system()
+    font_path = None
+
+    if system == 'Windows':
+        # 检查系统字体目录
+        system_font_path = os.path.join(os.environ['WINDIR'], 'Fonts', font_name)
+        # 检查用户字体目录
+        user_font_path = os.path.join(os.path.expanduser('~'), 'AppData', 'Local', 'Microsoft', 'Windows', 'Fonts', font_name)
+        # python包目录
+        package_font_path = join(pfont_path, font_name)
+        if os.path.exists(system_font_path):
+            font_path = system_font_path
+        elif os.path.exists(user_font_path):
+            font_path = user_font_path
+        elif os.path.exists(package_font_path):
+            font_path = package_font_path
+    elif system == 'Darwin':  # macOS
+        font_path = f'/Library/Fonts/{font_name}'
+    elif system == 'Linux':
+        font_path = f'/usr/share/fonts/{font_name}'
+    else:
+        raise FileNotFoundError(f"无法识别的操作系统，无法确定字体路径: {font_name}")
+
+
+    return font_path
 
 # 定义一个函数,用于设置字体
-def set_font(
-    font_size=10,
-    # 获取系统字体路径
-    font_path=r"C:\Windows\Fonts\TimesSong.ttf"
-):
+def set_font(font_size=10, font_name="times.ttf"):
+    font_path = get_font_path(font_name)
     # 字体加载
     font_manager.fontManager.addfont(font_path)
     prop = font_manager.FontProperties(fname=font_path)
-    # print(prop.get_name())  # 显示当前使用字体的名称
 
     # 字体设置
     rcParams["font.family"] = "sans-serif"  # 使用字体中的无衬线体

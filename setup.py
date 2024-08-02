@@ -1,8 +1,5 @@
 from setuptools import setup, find_packages
 
-with open('requirements.txt', 'r') as f:
-    requirements = f.readlines()
-
 with open('README.md', 'r', encoding='utf-8') as f:
     readme = f.read()
 
@@ -21,7 +18,10 @@ setup(
     author_email='wufeifeng_hust@163.com',
     keywords=['matplotlib'],
     python_requires=">=3.6",
-    install_requires=requirements,
+    install_requires=['matplotlib'],
     packages=find_packages(),
+    package_data={
+      'sci_plot': ['styles/**/*.mplstyle', 'styles/**/*.ttf'],
+    },
     include_package_data=True,
 )
