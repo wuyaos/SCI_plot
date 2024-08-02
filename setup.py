@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 
 setup(
     name='sci_plot',
-    version='1.0.0',
+    version='1.0.1',
     classifiers=[
         'Development Status :: 3 - Alpha', 'Environment :: Console',
         'Operating System :: OS Independent'
