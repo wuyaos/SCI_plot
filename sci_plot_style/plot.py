@@ -7,9 +7,9 @@ from matplotlib.ticker import MultipleLocator
 import os
 from os.path import join
 import platform
-import sci_plot
+import sci_plot_style
 
-sci_plot_path = sci_plot.__path__[0]
+sci_plot_path = sci_plot_style.__path__[0]
 pfont_path = join(sci_plot_path, 'styles', 'fonts')
 
 def get_font_path(font_name):

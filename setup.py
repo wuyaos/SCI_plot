@@ -4,7 +4,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
     readme = f.read()
 
 setup(
-    name='sci_plot',
+    name='sci_plot_style',
     version='1.0.1',
     classifiers=[
         'Development Status :: 3 - Alpha', 'Environment :: Console',

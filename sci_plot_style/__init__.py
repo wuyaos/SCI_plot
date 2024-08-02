@@ -2,10 +2,10 @@
 from os import listdir
 from os.path import isdir, join
 import matplotlib.pyplot as plt
-import sci_plot
+import sci_plot_style
 
 # register the included stylesheet in the matplotlib style library
-sci_plot_path = sci_plot.__path__[0]
+sci_plot_path = sci_plot_style.__path__[0]
 styles_path = join(sci_plot_path, 'styles')
 
 # Reads styles in /styles
