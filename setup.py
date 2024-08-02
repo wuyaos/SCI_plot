@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 
 setup(
     name='sci_plot_style',
-    version='1.0.1',
+    version='1.0.2',
     classifiers=[
         'Development Status :: 3 - Alpha', 'Environment :: Console',
         'Operating System :: OS Independent'
@@ -21,7 +21,7 @@ setup(
     install_requires=['matplotlib'],
     packages=find_packages(),
     package_data={
-      'sci_plot': ['styles/**/*.mplstyle', 'styles/**/*.ttf'],
+      'sci_plot_style': ['styles/**/*.mplstyle', 'styles/**/*.ttf'],
     },
     include_package_data=True,
 )
